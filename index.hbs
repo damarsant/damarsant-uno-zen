@@ -1,12 +1,28 @@
 {{!< default}}
 
-<h1 style="text-align: center;" id="posts-headline">Writings.</h1>
-<ol id="posts-list">
+<h1 style="text-align: center;margin-bottom: 20px;font-weight: 500;" id="posts-headline">BLOG</h1>
+<ol id="posts-list" style="margin-top: 0px;">
   {{#foreach posts}}
+  <hr class="divider post" style="width: 100%;">
   <li>
-    <a href="{{url}}" title="link to {{{title}}}">{{title}}</a>
-    <time datetime="{{date format="YYYY-MM-DDTHH:MM"}}">{{date format="DD MMM YYYY"}}</time>
-    <span class="post tags">{{tags separator=" "}}</span>
+    <H2 style="margin: 0px;">
+      <a href="{{url}}" title="link to {{{title}}}" style="padding: 0px;font-weight: bold;">
+      	{{title}}
+    	</a>
+    </H2>
+    <div class="post meta" style="margin: 0px;">
+      Posted: <time datetime="{{date format="YYYY-MM-DDTHH:MM"}}">{{date format="DD MMM YYYY"}}</time>
+      Tags: <span class="post tags">{{tags separator=" "}}</span>
+    </div>
+    <div class="post image" style="text-align: center;">
+      {{#if image}}<img id="post-image" src={{image}} alt="{{{title}}}" style="max-width: 75%;">{{/if}}
+    </div>
+  	<p class="post description" style="margin-bottom: 0px;font-size: 16px;">
+  		{{{excerpt}}} [...]
+      <br>
+      <div style="text-align: right;font-weight: bold;"><a href="{{url}}">Read more…</a></div>
+  	</p>
+  	
   </li>
   {{/foreach}}
 </ol>
